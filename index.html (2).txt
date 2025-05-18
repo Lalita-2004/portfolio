@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lalitha Sucharita Mangali | Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #5D3FD3;
+            --secondary-color: #D1C4E9;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --accent-color: #8860D0;
+            --dark-bg: #2F3542;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .name {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .title {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+        
+        .hero {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            gap: 3rem;
+        }
+        
+        .hero-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid white;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            color: var(--primary-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+        
+        .section-title.light {
+            color: white;
+        }
+        
+        .section-title.light::after {
+            background-color: white;
+        }
+        
+        .hero-text {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .key-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .skill-badge {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+        
+        .section {
+            padding: 6rem 0;
+        }
+        
+        .section-dark {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 6rem 0;
+        }
+        
+        .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        }
+        
+        .project-image {
+            height: 180px;
+            width: 100%;
+            background-color: var(--secondary-color);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .project-description {
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            color: #666;
+        }
+        
+        .project-link {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .project-link:hover {
+            background-color: var(--accent-color);
+        }
+        
+        .education {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .education-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .education-year {
+            font-weight: 700;
+            color: var(--secondary-color);
+            min-width: 100px;
+        }
+        
+        .education-content h3 {
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        
+        .education-content p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .skills-container {
+            margin-top: 3rem;
+        }
+        
+        .skills-category {
+            margin-bottom: 2rem;
+        }
+        
+        .category-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .skill-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .skill-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border-radius: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .section {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        }
+        
+        .project-image {
+            height: 180px;
+            width: 100%;
+            background-color: var(--secondary-color);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .project-description {
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            color: #666;
+        }
+        
+        .project-link {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .project-link:hover {
+            background-color: var(--accent-color);
+        }
+        
+        .education {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .education-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .education-year {
+            font-weight: 700;
+            color: var(--accent-color);
+            min-width: 100px;
+        }
+        
+        .education-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .education-content p {
+            color: #666;
+        }
+        
+        .skills-container {
+            margin-top: 3rem;
+        }
+        
+        .skills-category {
+            margin-bottom: 2rem;
+        }
+        
+        .category-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .skill-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .skill-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border-radius: 8px;
+            font-size: 1.2rem;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 3rem 0;
+            margin-top: 6rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .footer-link {
+            display: block;
+            color: #ccc;
+            margin-bottom: 0.8rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 1.5rem 0;
+            background-color: #222;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .section-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .education-card {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1 class="name">Lalitha Sucharita Mangali</h1>
+            <p class="title">Electronics and Communication Engineering Student</p>
+            <div class="contact-info">
+                <p>📧 akirashah2004@gmail.com</p>
+                <p>📱 9363623314</p>
+                <p>📍 Hyderabad, India</p>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">LS</a>
+            <div class="nav-links">
+                <a href="#" class="nav-link active">Home</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#skills" class="nav-link">Skills</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <img src="https://assets.onecompiler.app/43j4xqkzc/43j4wd6jd/IMG_20211219_153741%20(1).jpg" alt="Lalitha Sucharita" class="hero-image">
+        <div class="hero-content">
+            <h2 class="section-title">About Me</h2>
+            <p class="hero-text">
+                I am an Electronics and Communication Engineering student at Sathyabama Institute of Science and Technology with a passion for innovation and technology. My academic journey has equipped me with strong technical skills and a problem-solving mindset. I specialize in developing sustainable and intelligent systems that address real-world challenges.
+            </p>
+            
+        </div>
+    </section>
+    
+    <section id="projects" class="section-dark">
+        <div class="section-content">
+            <h2 class="section-title light">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">SB</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Smart Speed Breaker System</h3>
+                        <p class="project-description">
+                            An intelligent speed breaker mechanism that converts traffic-induced pressure into electrical energy using piezo plates. This self-sustained power solution achieved a 25% decrease in grid electricity usage.
+                        </p>
+                        <a href="smart_speed_breaker.html" class="project-link">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">WS</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Segregation of Waste</h3>
+                        <p class="project-description">
+                            An automated waste segregation system designed to categorize and separate wet, dry, and metal waste efficiently using sensor technology and automation processes.
+                        </p>
+                        <a href="waste_segregation.html" class="project-link">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">EM</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Secure Exam Monitoring with RFID & ML</h3>
+                        <p class="project-description">
+                            An RFID and GSM-based system using Raspberry Pi Pico and machine learning to secure exam papers through real-time monitoring and alerts.
+                        </p>
+                        <a href="secure_exam_monitoring.html" class="project-link">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">TS</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Priority Based Traffic System</h3>
+                        <p class="project-description">
+                            An adaptive traffic control system utilizing real-time data analytics, reducing average vehicle wait times by 25% and boosting overall traffic flow efficiency by 35%.
+                        </p>
+                        <a href="priority_traffic_system.html" class="project-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="education" class="section-dark">
+        <div class="section-content">
+            <h2 class="section-title light">Education</h2>
+            <div class="education">
+                <div class="education-card">
+                    <div class="education-year">2021-2025</div>
+                    <div class="education-content">
+                        <h3>Bachelor of Engineering - Electronics and Communication Engineering</h3>
+                        <p>Sathyabama Institute of Science and Technology</p>
+                        <p>CGPA: 8.8</p>
+                    </div>
+                </div>
+                
+                <div class="education-card">
+                    <div class="education-year">2019-2021</div>
+                    <div class="education-content">
+                        <h3>Higher Secondary Schooling</h3>
+                        <p>Narayana Junior College</p>
+                        <p>Percentage: 92.8%</p>
+                    </div>
+                </div>
+                
+                <div class="education-card">
+                    <div class="education-year">2018-2019</div>
+                    <div class="education-content">
+                        <h3>Secondary Schooling</h3>
+                        <p>Chanderbala Modi Academy</p>
+                        <p>Percentage: 81%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills" class="section">
+        <div class="section-content">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-container">
+                <div class="skills-category">
+                    <h3 class="category-title">Technical Skills</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-icon">P</div>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">L</div>
+                            <span>LABview</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">M</div>
+                            <span>Multisim</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">X</div>
+                            <span>Xilinx</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skills-category">
+                    <h3 class="category-title">Languages</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-icon">EN</div>
+                            <span>English</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">HI</div>
+                            <span>Hindi</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">TE</div>
+                            <span>Telugu</span>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3 class="footer-title">Quick Links</h3>
+                <a href="#" class="footer-link">Home</a>
+                <a href="#projects" class="footer-link">Projects</a>
+                <a href="#education" class="footer-link">Education</a>
+                <a href="#skills" class="footer-link">Skills</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3 class="footer-title">Certifications</h3>
+                <p class="footer-link">Introduction to C programming - NPTEL (Jan-Mar 2024)</p>
+                <p class="footer-link">LABview Internship - Aadya Skills (Jul-Aug 2023)</p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 Lalitha Sucharita Mangali. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
